@@ -1,0 +1,11 @@
+Total day charge
+Customer service calls
+International plan
+Voice mail plan
+Total eve charge
+Area code
+Total intl calls
+Total night minutes
+Number vmail messages
+Total day minutes
+Total intl minutes

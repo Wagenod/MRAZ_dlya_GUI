@@ -9,3 +9,10 @@ Total night minutes
 Number vmail messages
 Total day minutes
 Total intl minutes
+Total night charge
+Total intl charge
+Total eve minutes
+Total eve calls
+Total night calls
+Account length
+Total day calls

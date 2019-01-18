@@ -162,7 +162,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>6</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="add_tab">
     <attribute name="title">
@@ -352,7 +352,7 @@ p, li { white-space: pre-wrap; }
      <property name="font">
       <font>
        <family>MingLiU_HKSCS-ExtB</family>
-       <pointsize>9</pointsize>
+       <pointsize>10</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -362,7 +362,17 @@ p, li { white-space: pre-wrap; }
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="text">
-      <string>Сохранить признаки в файл</string>
+      <string>Сохранить признаки</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons8-save-96.ico</normaloff>icons8-save-96.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>35</width>
+       <height>35</height>
+      </size>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -380,7 +390,7 @@ p, li { white-space: pre-wrap; }
      <property name="font">
       <font>
        <family>MingLiU_HKSCS-ExtB</family>
-       <pointsize>9</pointsize>
+       <pointsize>10</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -390,7 +400,17 @@ p, li { white-space: pre-wrap; }
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="text">
-      <string>Очистить содержимое</string>
+      <string>Удалить содержимое</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons8-trash-96.ico</normaloff>icons8-trash-96.ico</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -401,101 +421,12 @@ p, li { white-space: pre-wrap; }
     <attribute name="title">
      <string>Персептрон</string>
     </attribute>
-    <widget class="QGroupBox" name="percep_output_gb">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>10</y>
-       <width>341</width>
-       <height>331</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string>Вывод алгоритма</string>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-     <widget class="QTextEdit" name="weights_matrix_te">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>80</y>
-        <width>191</width>
-        <height>241</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="weights_matrix_lbl">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>101</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>8</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Матрица весов:</string>
-      </property>
-     </widget>
-     <widget class="QTextEdit" name="epochs_num_te">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>30</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="placeholderText">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="epochs_num_lbl">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>101</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>8</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Количество эпох:</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QGroupBox" name="percep_params_gb">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>350</y>
-       <width>561</width>
+       <y>260</y>
+       <width>301</width>
        <height>101</height>
       </rect>
      </property>
@@ -515,7 +446,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="max_epochs_lbl">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>40</y>
         <width>170</width>
         <height>16</height>
@@ -535,7 +466,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QSpinBox" name="max_epochs_sb">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>200</x>
         <y>40</y>
         <width>101</width>
         <height>22</height>
@@ -557,8 +488,8 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>221</width>
-       <height>331</height>
+       <width>291</width>
+       <height>231</height>
       </rect>
      </property>
      <property name="font">
@@ -576,9 +507,98 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>0</x>
         <y>30</y>
-        <width>221</width>
-        <height>301</height>
+        <width>291</width>
+        <height>201</height>
        </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="percep_output_gb">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>10</y>
+       <width>261</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Вывод алгоритма</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <widget class="QTextEdit" name="weights_matrix_te">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>100</y>
+        <width>161</width>
+        <height>241</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="weights_matrix_lbl">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Матрица весов:</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="epochs_num_te">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="epochs_num_lbl">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Количество эпох:</string>
       </property>
      </widget>
     </widget>
@@ -1153,54 +1173,110 @@ p, li { white-space: pre-wrap; }
    </widget>
    <widget class="QWidget" name="kopa_tab">
     <attribute name="title">
-     <string>КОПА</string>
+     <string>КОРА</string>
     </attribute>
+    <widget class="QGroupBox" name="kopa_train_gb">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>211</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Обучающая выборка</string>
+     </property>
+     <widget class="QTableView" name="data_kopa_tbl">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>211</width>
+        <height>301</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QPushButton" name="load_data_btn">
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>50</y>
-     <width>191</width>
+     <y>40</y>
+     <width>181</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>MingLiU_HKSCS-ExtB</family>
-     <pointsize>14</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
     <string>Загрузить данные</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-downloads-folder-96.ico</normaloff>icons8-downloads-folder-96.ico</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="fit_btn">
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>130</y>
-     <width>191</width>
+     <y>90</y>
+     <width>181</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>MingLiU_HKSCS-ExtB</family>
-     <pointsize>14</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="text">
     <string>Обучить модель</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons8-play-30.ico</normaloff>icons8-play-30.ico</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
   </widget>
+  <zorder>fit_btn</zorder>
+  <zorder>tabWidget</zorder>
+  <zorder>load_data_btn</zorder>
  </widget>
  <resources/>
  <connections/>

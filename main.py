@@ -19,6 +19,7 @@ from Haming import *
 from Kohonen import *
 from Nsko import *
 from Hebb import *
+from alg_kopa import *
 
 
 
@@ -61,6 +62,8 @@ class MyWin(QtWidgets.QMainWindow):
             self.ui.data_nsko_tbl.setModel(model)
         elif algorithm_index == 5:
             self.ui.data_habb_tbl.setModel(model)
+        elif algorithm_index == 6:
+            self.ui.data_kopa_tbl.setModel(model)
 
 
     def value_change_slider(self):

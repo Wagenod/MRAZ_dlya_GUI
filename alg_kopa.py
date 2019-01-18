@@ -1,5 +1,5 @@
  # -*- coding: utf-8 -*-
-import f
+#import f
 import numpy as np
 import math
 from sklearn.datasets import make_classification
@@ -143,13 +143,12 @@ def classification(R,X,y,c):
         
             
 if __name__ == '__main__':
-    [X, y] = make_classification(n_samples=100, n_features=1, n_informative=1, n_redundant=0, n_clusters_per_class=1)
-    print (X)
-	print(y)
-	V = [] #множество элементарных предикатов
+    [X, y] = make_classification(n_samples=20, n_features=1, n_informative=1, n_redundant=0, n_clusters_per_class=1)
+    V = [] #множество элементарных предикатов
     for i in range(len(X)):
         V.append((f.p_lte(X[i]),X[i],'=<'))
         V.append((f.p_gte(X[i]),X[i],'>='))
+    print (V)
     R_1, R_2 = KOPA(X,y,V,2,0.4,0.6,2,4)
     classification(R_2,X,y,1)
         

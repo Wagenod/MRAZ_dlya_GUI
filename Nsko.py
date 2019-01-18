@@ -35,12 +35,12 @@ def NSKO_alg(Matrix_X, Vector_y, h):
         Vector_w = np.matmul(np.linalg.pinv(Matrix_X), b);
     return Vector_w;
 
-Matrix_X = np.array([[1, 2], [0, 2], [1, 3], [3, 2]]);  
-Vector_y = np.array([[0], [0], [1], [1]]); 
-w = NSKO_alg(Matrix_X, Vector_y, h = 1.6)
-print(w)
-w = np.poly1d(w)
-print(np.poly1d(w))
+#Matrix_X = np.array([[1, 2], [0, 2], [1, 3], [3, 2]]);
+#Vector_y = np.array([[0], [0], [1], [1]]);
+#w = NSKO_alg(Matrix_X, Vector_y, h = 1.6)
+#print(w)
+#w = np.poly1d(w)
+#print(np.poly1d(w))
 #fig=plt.figure
 #ax=fig.add_subplot(111)
 #ax.plot(w)

@@ -13,7 +13,12 @@ from PyQt5.QtWidgets import QFileDialog, QDialog, QApplication, QPushButton, QVB
 
 from PandasModel import *
 from Add import *
+from Perceptron import *
 from mraz_gui_schema import *
+from Haming import *
+from Kohonen import *
+from Nsko import *
+from Hebb import *
 
 
 
@@ -37,27 +42,98 @@ class MyWin(QtWidgets.QMainWindow):
         if fileName:
             self.df = pd.read_csv(fileName, engine = 'python')
             model = PandasModel(self.df)
-            self.ui.data_tbl.setModel(model) #добавляем в таблицу данные
+            algorithm_index = self.ui.tabWidget.currentIndex() # Получение индекса текущей страницы QTable
+            self.insert_data(algorithm_index, model)
+        self.ui.load_data_btn.setChecked(False) 
+
+    def insert_data(self, algorithm_index, model):
+        if algorithm_index == 0:
+            self.ui.data_tbl.setModel(model)
             count_features = len(self.df.columns[:-1])
             self.ui.step_slider.setMaximum(count_features)
-        self.ui.load_data_btn.setChecked(False) 
-            
+        elif algorithm_index == 1:
+            self.ui.data_perceptron_tbl.setModel(model)
+        elif algorithm_index == 2:
+            self.ui.data_haming_tbl.setModel(model)
+        elif algorithm_index == 3:
+            self.ui.data_kohonen_tbl.setModel(model)
+        elif algorithm_index == 4:
+            self.ui.data_nsko_tbl.setModel(model)
+        elif algorithm_index == 5:
+            self.ui.data_habb_tbl.setModel(model)
+
+
     def value_change_slider(self):
         value = self.ui.step_slider.value()
         self.ui.depth_value_lbl.setText(str(value))
         
     def fit_btn_click(self):
-        X = self.df.iloc[:,:-1]
-        Y = self.df.iloc[:,-1]
+        algorithm_index = self.ui.tabWidget.currentIndex()
+        self.fit(algorithm_index)
+
+    def fit(self, algorithm_index):
+        if algorithm_index == 0:
+            self.fit_add()
+        elif algorithm_index == 1:
+            self.fit_perceptron()
+        elif algorithm_index == 2:
+            self.fit_haming()
+        elif algorithm_index == 3:
+            self.fit_kohonen()
+        elif algorithm_index == 4:
+            self.fit_nsko()
+        elif algorithm_index == 5:
+            self.fit_habb()
+
+    def fit_add(self):
+        X = self.df.iloc[:, :-1]
+        Y = self.df.iloc[:, -1]
         model = LogisticRegression();
         step = self.ui.step_slider.value()
-        result_features, costs = Add(X, Y, list(self.df.columns[:-1]),model, int(step), True)
-        
+        result_features, costs = Add(X, Y, list(self.df.columns[:-1]), model, int(step), True)
         result_features_str = "\n".join(result_features)
         self.clear_btn_click()
         self.ui.fit_btn.setChecked(False)
         self.ui.best_features_te.append(result_features_str)
-        
+
+    def fit_perceptron(self):
+        X = np.array(self.df.iloc[:,:-1])
+        y = np.array(self.df.iloc[:,-1])
+
+        uniform_X = uniform_vector(X, y)
+        max_epochs = self.ui.max_epochs_sb.value()
+        weights, num_epochs = Perceptron(uniform_X, max_epochs)
+        self.ui.epochs_num_te.setText(str(num_epochs))
+        self.ui.weights_matrix_te.setText(str(weights))
+
+    def fit_haming(self):
+        X_etalons = np.array(self.df.iloc[:,:-1]).transpose()
+        X_classify = np.array(self.df.iloc[:,:-1])
+        label = Haming(X_etalons,X_classify)
+        self.ui.label_le.setText(str(label))
+
+    def fit_kohonen(self):
+        X = np.array(self.df.iloc[:,:-1])
+        y = np.array(self.df.iloc[:,-1])
+        weights = Kohonen(X,y)
+        self.ui.kohonen_weights_le.setText(str(weights))
+
+    def fit_nsko(self):
+        X = np.array(self.df.iloc[:,:-1])
+        y = np.array(self.df.iloc[:,-1])
+        step = self.ui.nsko_step_dsb.value()
+        weights = NSKO_alg(X,y,step)
+        self.ui.nsko_weights_te.setText(str(weights))
+
+    def fit_habb(self):
+        X = np.array(self.df.iloc[:,:-1])
+        y = np.array(self.df.iloc[:,-1])
+        bip_y = bipolation(y)
+        max_iterations = self.ui.max_epochs_habb_sb.value()
+        weights, num_iterations = Hebb(X,bip_y,max_iterations)
+        self.ui.habb_count_iter_le.setText(str(num_iterations))
+        self.ui.habb_weights_te.setText(str(weights))
+
     def clear_btn_click(self):
         self.ui.best_features_te.clear()
         self.ui.clear_btn.setChecked(False)

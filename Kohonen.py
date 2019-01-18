@@ -12,7 +12,7 @@ import seaborn as sns
 
 def Kohonen(X,y):
     # будем использовать евклидово расстояние
-    print('Kohonen')
+    #print('Kohonen')
     h = 0.5
     dh = 0.0001 # h должен уменьшаться, шаг выбираем тут
     [m,n] = X.shape
@@ -45,11 +45,11 @@ def Kohonen(X,y):
     return w
 
 
-if __name__ == '__main__':
-    sns.set()
-    X = np.array([[1,2],[0,2],[1,3],[3,2]])
-    y = [0,0,1,1]
-    w = Kohonen(X,y)
+#if __name__ == '__main__':
+#    sns.set()
+#    X = np.array([[1,2],[0,2],[1,3],[3,2]])
+#    y = [0,0,1,1]
+#    w = Kohonen(X,y)
 
 
 # In[ ]:

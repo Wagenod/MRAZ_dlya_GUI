@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 import f
 import numpy as np
 import math
@@ -144,7 +144,9 @@ def classification(R,X,y,c):
             
 if __name__ == '__main__':
     [X, y] = make_classification(n_samples=100, n_features=1, n_informative=1, n_redundant=0, n_clusters_per_class=1)
-    V = [] #множество элементарных предикатов
+    print (X)
+	print(y)
+	V = [] #множество элементарных предикатов
     for i in range(len(X)):
         V.append((f.p_lte(X[i]),X[i],'=<'))
         V.append((f.p_gte(X[i]),X[i],'>='))

@@ -21,10 +21,10 @@ def Perceptron(X,N): # X - набор унифицированных векто�
     while 1:
         if true_count == len(X):
             print('Число итераций %i' %(k))
-            return w
+            return w, k
         if k == N:
             print('Число итераций %i' %(k))
-            return w
+            return w, k
         if n == len(X):
             n = 0
         if np.all(np.dot(X[n],w) > 0):
@@ -35,11 +35,11 @@ def Perceptron(X,N): # X - набор унифицированных векто�
         k = k + 1
         n = n + 1
 
-if __name__ == "__main__":
-    X = np.array([[1,2],[0,2],[1,3],[3,2]])
-    y = [0,0,1,1]
-    uniform_X = uniform_vector(X,y)
-    w = Perceptron(uniform_X,1000)
+#if __name__ == "__main__":
+#    X = np.array([[1,2],[0,2],[1,3],[3,2]])
+#    y = [0,0,1,1]
+#    uniform_X = uniform_vector(X,y)
+#    w = Perceptron(uniform_X,1000)
 
 
 # In[ ]:

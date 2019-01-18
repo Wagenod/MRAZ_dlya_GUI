@@ -7,7 +7,7 @@ import numpy as np
 
 
 def Haming(X,w):
-    print('Haming')
+    #print('Haming')
     [m,n] = X.shape # m эталонных вектров и n признаков. Метод shape возвращает колво строк и столбцов в матрице
     h = 1/n
     e = np.zeros([m])
@@ -21,18 +21,18 @@ def Haming(X,w):
         s[s < 0] = 0
         if np.all(s == y): # если все  s равны y (сравниваем массивы)
             n_class = np.nonzero(s)[0][0]#берем первую строку и первый столбец
-            print('Алгоритм окончил работу')
-            print('Номер класса: %i' %(n_class + 1))
-            return
+            #print('Алгоритм окончил работу')
+            #print('Номер класса: %i' %(n_class + 1))
+            return n_class + 1
         else:
             y = s
             k += 1
 
 
-if __name__ == '__main__':
-    X = np.array([[1,1,1,-1,1,-1],[-1,-1,-1,1,1,1]])
-    y = np.array([1,1,1,-1,1,1])
-    Haming(X,y)
+#if __name__ == '__main__':
+#    X = np.array([[1,1,1,-1,1,-1],[-1,-1,-1,1,1,1]])
+#    y = np.array([1,1,1,-1,1,1])
+#    Haming(X,y)
 
 
 # In[ ]:
